@@ -3,11 +3,9 @@
 one:
   wno: MyString
   name: MyString
-  email: MyString
   major: MyString
 
 two:
   wno: MyString
   name: MyString
-  email: MyString
   major: MyString

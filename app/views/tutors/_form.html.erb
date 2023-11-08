@@ -21,7 +21,7 @@
   <div class="row mb-2">
       <div class="col">
           <%= form.label :email, style: "display: block" %>
-          <%= form.text_field :email, class: "w-25 m-auto text-center form-control rounded-pill border-dark" %>
+          <%= form.collection_select :user_id, User.where(admin: false).order(:email), :id, :email, include_blank: true, class: "w-25 m-auto text-center form-control form-select rounded-pill border-dark" %>
       </div>
   </div>
 

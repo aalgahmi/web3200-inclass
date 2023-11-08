@@ -14,7 +14,7 @@
 <% @tutors.each do |tutor| %>
   <tr>
     <td><%= tutor.name %></td>C
-    <td><%= tutor.email %></td>
+    <td><%= tutor.user.email %></td>
     <td><%= tutor.bio %></td>
     <td><%= tutor.courses.map {|c| "#{c.prefix}#{c.num}: #{c.title}" }%></td>
     <td>

@@ -1,8 +1,7 @@
-<%= form_with(model: availability) do |form| %>
+<%= form_with(model: availability, class: "needs-validation", novalidate: true) do |form| %>
   <% if availability.errors.any? %>
-    <div style="color: red">
-      <h2><%= pluralize(availability.errors.count, "error") %> prohibited this availability from being saved:</h2>
-
+    <div class="alert alert-danger">
+      <h2><%= pluralize(availability.errors.count,"error")%> prohibited this availability from being saved:</h2>
       <ul>
         <% availability.errors.each do |error| %>
           <li><%= error.full_message %></li>
@@ -10,28 +9,23 @@
       </ul>
     </div>
   <% end %>
-
-  <div>
-    <%= form.label :tutor_id, style: "display: block" %>
-    <%= form.text_field :tutor_id %>
+  <div class="mb-3">
+    <%= form.label :tutor_id, class: "form-label" %>
+    <%= form.text_field :tutor_id, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :day, style: "display: block" %>
-    <%= form.number_field :day %>
+  <div class="mb-3">
+    <%= form.label :day, class: "form-label" %>
+    <%= form.number_field :day, class: "form-control" %>
   </div>
-
-  <div>
-    <%= form.label :starts_at, style: "display: block" %>
-    <%= form.time_field :starts_at %>
+  <div class="mb-3">
+    <%= form.label:starts_at,class:"form-label" %>
+    <%= form.time_field :starts_at,class:"form-control"%>
   </div>
-
-  <div>
-    <%= form.label :ends_at, style: "display: block" %>
-    <%= form.time_field :ends_at %>
+  <div class="mb-3">
+    <%= form.label :ends_at, class: "form-label" %>
+    <%= form.time_field :ends_at, class: "form-control"%>
   </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="mb-3">
+    <%= form.submit "Save",class:"btn btn-primary"%>
   </div>
 <% end %>

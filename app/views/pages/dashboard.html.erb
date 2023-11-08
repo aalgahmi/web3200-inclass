@@ -1,0 +1,11 @@
+<div class="container pt-5">
+  <% if current_user&.admin %>
+   This is for admin
+   <% elsif current_user&.tutor %>
+   This is for tutors
+   <% elsif current_user&.student? %>
+   this for registerd students
+   <% else %>
+    <%= link_to "Register as a student", students_new_path %> to access our services
+  <% end %>
+</div>

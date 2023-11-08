@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_01_173456) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_08_173930) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -92,7 +92,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_173456) do
   create_table "students", force: :cascade do |t|
     t.string "wno"
     t.string "name"
-    t.string "email"
     t.string "major"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -102,7 +101,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_01_173456) do
 
   create_table "tutors", force: :cascade do |t|
     t.string "name"
-    t.string "email"
     t.text "bio"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

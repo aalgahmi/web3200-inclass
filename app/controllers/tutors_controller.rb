@@ -1,5 +1,5 @@
 class TutorsController < ApplicationController
-  before_action :require_admin
+  # before_action :require_admin
   before_action :set_tutor, only: %i[ show edit update destroy ]
 
   # GET /tutors or /tutors.json
@@ -23,9 +23,17 @@ class TutorsController < ApplicationController
   # POST /tutors or /tutors.json
   def create
     @tutor = Tutor.new(tutor_params)
+    is_saved = false
+    @tutor.transaction do
+      @tutor.user.tutor = true
+
+      @tutor.save
+      @tutor.user.save
+      is_saved = true
+    end
 
     respond_to do |format|
-      if @tutor.save
+      if is_saved
         format.html { redirect_to tutors_url, notice: "Tutor was successfully created." }
         format.json { render :show, status: :created, location: @tutor }
       else
@@ -66,6 +74,6 @@ class TutorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def tutor_params
-      params.require(:tutor).permit(:name, :email, :bio, course_ids: [])
+      params.require(:tutor).permit(:name, :bio, :user_id, course_ids: [])
     end
 end

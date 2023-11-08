@@ -1,10 +1,12 @@
-<h1>Editing availability</h1>
-
-<%= render "form", availability: @availability %>
-
-<br>
-
-<div>
-  <%= link_to "Show this availability", @availability %> |
-  <%= link_to "Back to availabilities", availabilities_path %>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h1 class="text-center">Editing Availability</h1>
+      <%= render "form", availability: @availability %>
+      <div class="text-center mt-3">
+        <%= link_to "Show this availability",@availability,class: "btn btn-primary mr-2"%>
+        <%= link_to "Back to availabilities",availabilities_path,class: "btn btn-secondary"%>
+      </div>
+    </div>
+  </div>
 </div>
