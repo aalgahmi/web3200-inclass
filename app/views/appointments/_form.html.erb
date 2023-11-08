@@ -1,6 +1,6 @@
-<%= form_with(model: appointment) do |form| %>
+<%= form_with(model: appointment, class: "form") do |form| %>
   <% if appointment.errors.any? %>
-    <div style="color: red">
+    <div class="alert alert-danger">
       <h2><%= pluralize(appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
 
       <ul>
@@ -11,32 +11,32 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :availability_id, style: "display: block" %>
-    <%= form.text_field :availability_id %>
+  <div class="form-group">
+    <%= form.label :availability_id, class: "control-label" %>
+    <%= form.text_field :availability_id, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :student_id, style: "display: block" %>
-    <%= form.text_field :student_id %>
+  <div class="form-group">
+    <%= form.label :student_id, class: "control-label" %>
+    <%= form.text_field :student_id, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :kind, style: "display: block" %>
-    <%= form.text_field :kind %>
+  <div class="form-group">
+    <%= form.label :kind, class: "control-label" %>
+    <%= form.text_field :kind, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :on_date, style: "display: block" %>
-    <%= form.date_field :on_date %>
+  <div class="form-group">
+    <%= form.label :on_date, class: "control-label" %>
+    <%= form.date_field :on_date, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class="form-group">
+    <%= form.label :description, class: "control-label" %>
+    <%= form.text_area :description, class: "form-control" %>
   </div>
 
-  <div>
-    <%= form.submit %>
+  <div class="form-group">
+    <%= form.submit class: "btn btn-primary" %>
   </div>
 <% end %>

@@ -1,10 +1,14 @@
-<h1>Editing appointment</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="mt-4">Editing Appointment</h1>
 
-<%= render "form", appointment: @appointment %>
+      <%= render "form", appointment: @appointment %>
 
-<br>
-
-<div>
-  <%= link_to "Show this appointment", @appointment %> |
-  <%= link_to "Back to appointments", appointments_path %>
+      <div class="mt-4">
+        <%= link_to "Show this Appointment", @appointment, class: "btn btn-primary" %> |
+        <%= link_to "Back to Appointments", appointments_path, class: "btn btn-secondary" %>
+      </div>
+    </div>
+  </div>
 </div>
