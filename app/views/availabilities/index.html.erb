@@ -11,7 +11,7 @@
   <% end %>
 </div>
 
-<%= link_to "New availability", new_availability_path %>
+<%= link_to "New availability", new_tutor_availability_path(@tutor)%>
 <div class="container mt-5">
   <div class="row">
     <div class="col-md-6 mx-auto">
@@ -25,7 +25,7 @@
           </p>
         <% end %>
       </div>
-      <%= link_to "New availability",new_availability_path,class: "btn btn-success"%>
+      <%= link_to "New availability",new_tutor_availability_path(@tutor),class: "btn btn-success"%>
     </div>
   </div>
 </div>

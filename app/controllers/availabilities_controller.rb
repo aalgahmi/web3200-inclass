@@ -1,4 +1,5 @@
 class AvailabilitiesController < ApplicationController
+  before_action :set_tutor
   before_action :set_availability, only: %i[ show edit update destroy ]
 
   # GET /availabilities or /availabilities.json
@@ -22,10 +23,10 @@ class AvailabilitiesController < ApplicationController
   # POST /availabilities or /availabilities.json
   def create
     @availability = Availability.new(availability_params)
-
+    @availability.tutor = @tutor
     respond_to do |format|
       if @availability.save
-        format.html { redirect_to availability_url(@availability), notice: "Availability was successfully created." }
+        format.html { redirect_to tutor_url(@tutor), notice: "Availability was successfully created." }
         format.json { render :show, status: :created, location: @availability }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -58,6 +59,9 @@ class AvailabilitiesController < ApplicationController
   end
 
   private
+    def set_tutor
+      @tutor = Tutor.find(params[:tutor_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_availability
       @availability = Availability.find(params[:id])

@@ -4,7 +4,7 @@
       <h1 class="text-center">New Availability</h1>
       <%= render "form", availability: @availability %>
       <div class="text-center mt-3">
-        <%= link_to "Back to availabilities",availabilities_path,class:"btn btn-secondary"%>
+        <%= link_to "Back to availabilities",tutor_availabilities_path(@tutor),class:"btn btn-secondary"%>
       </div>
     </div>
   </div>

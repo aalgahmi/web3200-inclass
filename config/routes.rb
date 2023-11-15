@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  get "/dashboard" => "pages#dashboard", as: "dashboard"
-  root "pages#home"
+  # get "/dashboard" => "pages#dashboard", as: "dashboard"
+
+  constraints Clearance::Constraints::SignedIn.new do
+    root "pages#dashboard", as: :dashboard
+  end
+  constraints Clearance::Constraints::SignedOut.new do
+    root "pages#home"
+  end
 end

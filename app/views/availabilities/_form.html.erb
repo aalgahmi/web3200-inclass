@@ -1,4 +1,4 @@
-<%= form_with(model: availability, class: "needs-validation", novalidate: true) do |form| %>
+<%= form_with(model: [@tutor, availability], class: "needs-validation", novalidate: true) do |form| %>
   <% if availability.errors.any? %>
     <div class="alert alert-danger">
       <h2><%= pluralize(availability.errors.count,"error")%> prohibited this availability from being saved:</h2>
