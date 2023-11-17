@@ -17,22 +17,14 @@
         <td><%= course.prefix %></td>
         <td><%= course.num %></td>
         <td><%= course.title %></td>
-        <td><%= course.tutors.map {|t| t.name } %></td>
-        <td><%= link_to "See more", course_path(course) %></td>
+        <td><%= course.tutors.map {|t| t.name }.join(', ') %></td>
+        <td><%= link_to "See more", course_path(course), class: "btn btn-outline-primary" %></td>
       </tr>
     <% end %>
     </tbody>
   </table>
   
-  <div id="courses">
-    <% @courses.each do |course| %>
-      <%= render course %>
-      <p>
-        <%= link_to "Show this course", course %>
-      </p>
-    <% end %>
-  </div>
 
-  <%= link_to "New course", new_course_path %>
+  <%= link_to "New course", new_course_path , class: "btn btn-primary my-5" %>
 
 </div>

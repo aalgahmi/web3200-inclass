@@ -18,5 +18,34 @@
     <strong>Major:</strong>
     <%= student.major %>
   </p>
+  <hr>
+
+  <h3>Appointments</h3>
+  <%#Student's Appointment%>
+  <% if student.appointments.exists? %>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tutor</th>
+        <th>Appointment Date</th>
+        <th>Meeting Preference</th>
+      </tr>
+    </thead>
+    <tbody>
+       <% student.appointments.each do |app| %>
+        <tr>
+          <td><%= app.tutor.name %></td>
+          <td><%= app.on_date.to_fs(:rfc822) %></td>
+          <td><%= app.kind %></td>
+        </tr>
+      <% end%>
+    </tbody>
+  </table>
+  <% else %>
+    <div>
+      <p>No appointments currently booked.</p>
+    </div>
+  <% end %>
+
 
 </div>
