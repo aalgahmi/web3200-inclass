@@ -9,6 +9,10 @@ class CoursesController < ApplicationController
 
   # GET /courses/1 or /courses/1.json
   def show
+    # @course = Course.find(params[:id])
+    # @tutors_with_availabilities = @course.tutors.map do |tutor|
+    # [tutor, tutor.availabilities.count] 
+    # end
   end
 
   # GET /courses/new

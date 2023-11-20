@@ -1,22 +1,35 @@
-<div id="<%= dom_id course %>">
-  <p class="fs-4 mt-4">
-    <strong>Prefix:</strong>
-    <%= course.prefix %>
+<div id="<%= dom_id(course) %>">
+  <h2 class="fs-4 mt-4"><%= @course.title %></h2>
+  
+  <p class="fs-4">
+    <strong>Prefix:</strong> <%= @course.prefix %>
   </p>
 
   <p class="fs-4">
-    <strong>Num:</strong>
-    <%= course.num %>
+    <strong>Number:</strong> <%= @course.num %>
   </p>
 
   <p class="fs-4">
-    <strong>Title:</strong>
-    <%= course.title %>
+    <strong>Description:</strong> <%= @course.description %>
   </p>
 
-  <p class="fs-4">
-    <strong>Description:</strong>
-    <%= course.description %>
-  </p>
-
+  <h3 class="fs-4 mt-4">Registered Tutors</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Tutor Name</th>
+        <th>Number of Availabilities</th>
+        <th>Bio</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tutors_with_availabilities.each do |tutor_info| %>
+        <tr>
+          <td><%= tutor_info[:tutor].name %></td>
+          <td><%= tutor_info[:availability_count] %></td>
+          <td><%= tutor_info[:tutor].bio %></td> 
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
