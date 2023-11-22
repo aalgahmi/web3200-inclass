@@ -9,10 +9,14 @@ Rails.application.routes.draw do
       controller: "clearance/passwords",
       only: [:edit, :update]
   end
+  
+  resources :appointments
+  resources :availabilities
 
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
   delete "/sign_out" => "clearance/sessions#destroy", as: "sign_out"
   get "/sign_up" => "clearance/users#new", as: "sign_up"
+  get 'pages/appointments', to: 'pages#appointments'
 
   resources :tutors do
     resources :availabilities do
@@ -20,11 +24,13 @@ Rails.application.routes.draw do
     end
   end
   resources :courses
+
+  # Add the new route for the users action
+  get 'pages/users', to: 'pages#users', as: 'users_page'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # get "/dashboard" => "pages#dashboard", as: "dashboard"
-
   constraints Clearance::Constraints::SignedIn.new do
     root "pages#dashboard", as: :dashboard
   end
@@ -34,3 +40,4 @@ Rails.application.routes.draw do
 
   get "/stats" => "pages#stats", as: "stats"
 end
+

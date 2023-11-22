@@ -1,0 +1,36 @@
+<h1>All Users</h1>
+
+<table style="border-collapse: collapse; width: 100%;">
+  <thead>
+    <tr>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Name</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Email</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Role</th>
+      <th style="border: 1px solid #ddd; padding: 8px; text-align: left;">Show Page</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @users.each do |user| %>
+    <tr>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: left;"><%= user.email %></td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: left;"><%= user.email %></td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">
+        <% if user.admin? %>
+          Admin
+        <% elsif user.tutor? %>
+          Tutor
+        <% elsif user.student? %>
+          Student
+        <% else %>
+          Unknown
+        <% end %>
+      </td>
+      <td style="border: 1px solid #ddd; padding: 8px; text-align: left;">
+        <% if user.student? %>
+          <%= link_to 'View Student', student_path(user.student) %>
+        <% end %>
+      </td>
+    </tr>
+  <% end %>   
+  </tbody>
+</table>
