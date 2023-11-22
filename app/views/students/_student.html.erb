@@ -29,6 +29,7 @@
         <th>Tutor</th>
         <th>Appointment Date</th>
         <th>Meeting Preference</th>
+        <th>Courses</th>
       </tr>
     </thead>
     <tbody>
@@ -37,6 +38,13 @@
           <td><%= app.tutor.name %></td>
           <td><%= app.on_date.to_fs(:rfc822) %></td>
           <td><%= app.kind %></td>
+          <td>
+            <ul style="list-style-type:none; margin: 0; padding: 0;">
+            <% app.availability.tutor.courses.each do |course| %>
+                <li><%= course.prefix %> - <%= course.num %></li>
+            <% end %>    
+            </ul>
+          </td>
         </tr>
       <% end%>
     </tbody>
