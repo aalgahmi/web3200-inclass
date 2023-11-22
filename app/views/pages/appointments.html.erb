@@ -1,0 +1,23 @@
+
+<table class="table mt-5 mb-5">
+  <tr>
+    <th>Appointment ID</th>
+    <th>Student</th>
+    <th>Tutor</th>
+    <th>Date</th>
+    <th>Time</th>
+  </tr>
+  
+  <% @appointments.each do |appointment| %>
+    <tr>
+      <td><%= appointment.id %></td>
+      <td><%= link_to appointment.student.name, student_path(appointment.student) %></td>
+      <td><%= link_to appointment.tutor.name, tutor_path(appointment.tutor) %></td>
+      <td><%= appointment.availability.starts_at.strftime('%H:%M') %></td>
+      <td><%= appointment.availability.ends_at.strftime('%H:%M') %></td>
+    </tr>
+  <% end %>
+</table>
+<div style="text-align: center;">
+  <%= link_to 'New Appointment', new_appointment_path, class: 'btn btn-primary mb-5 mt-3' %>
+</div>

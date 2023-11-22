@@ -11,6 +11,11 @@ class PagesController < ApplicationController
 
   private
 
+  def appointments
+    @appointments = Appointment.all
+  end
+
+private
   def select_layout
     case action_name
     when 'home'
