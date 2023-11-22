@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_11_08_173930) do
+ActiveRecord::Schema[7.0].define(version: 2023_11_21_173447) do
   create_table "action_text_rich_texts", force: :cascade do |t|
     t.string "name", null: false
     t.text "body"
@@ -68,6 +68,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_11_08_173930) do
     t.time "ends_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.time "start_time"
+    t.time "end_time"
     t.index ["tutor_id"], name: "index_availabilities_on_tutor_id"
   end
 

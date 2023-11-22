@@ -20,11 +20,13 @@ Rails.application.routes.draw do
     end
   end
   resources :courses
+
+  # Add the new route for the users action
+  get 'pages/users', to: 'pages#users', as: 'users_page'
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
-  # get "/dashboard" => "pages#dashboard", as: "dashboard"
-
   constraints Clearance::Constraints::SignedIn.new do
     root "pages#dashboard", as: :dashboard
   end
@@ -32,3 +34,4 @@ Rails.application.routes.draw do
     root "pages#home"
   end
 end
+
