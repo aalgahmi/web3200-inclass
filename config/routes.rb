@@ -31,4 +31,6 @@ Rails.application.routes.draw do
   constraints Clearance::Constraints::SignedOut.new do
     root "pages#home"
   end
+
+  get "/stats" => "pages#stats", as: "stats"
 end

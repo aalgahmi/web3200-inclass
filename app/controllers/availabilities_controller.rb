@@ -1,6 +1,8 @@
 class AvailabilitiesController < ApplicationController
   before_action :set_tutor
+  before_action :set_tutor
   before_action :set_availability, only: %i[ show edit update destroy ]
+
 
   # GET /availabilities or /availabilities.json
   def index
@@ -59,6 +61,9 @@ class AvailabilitiesController < ApplicationController
   end
 
   private
+    def set_tutor
+      @tutor = Tutor.find(params[:tutor_id])
+    end
     def set_tutor
       @tutor = Tutor.find(params[:tutor_id])
     end

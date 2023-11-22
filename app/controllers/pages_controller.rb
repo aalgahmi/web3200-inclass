@@ -13,3 +13,6 @@ private
     end
   end
 end
+
+def stats
+end
